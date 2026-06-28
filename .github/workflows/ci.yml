@@ -1,0 +1,20 @@
+name: CI on Windows
+
+# 触发条件：当代码推送到 main 分支时
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    # 指定运行环境为 GitHub 托管的 Windows 最新版
+    runs-on: windows-latest
+
+    steps:
+      # 第一步：拉取你的代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 第二步：执行一个简单的命令
+      - name: Run a one-line script
+        run: echo "Hello from Windows!"
